@@ -32,16 +32,19 @@ class conslx:
             # of the terminal
             for l in self.voxels:
                 print(l)
-                for i in range(l[1], l[1] + len(l)):
-                    print(i)
-                    for z in range(l[0], l[0] + len(l[i])):
-                        try:
-                            if l[i + 2 - l[1]][z - l[0]] == " ":
+                if isinstance(i, int):
+                    pass
+                else:
+                    for i in range(l[1], l[1] + len(l)):
+                        print(i)
+                        for z in range(l[0], l[0] + len(l[i])):
+                            try:
+                                if l[i + 2 - l[1]][z - l[0]] == " ":
+                                    i += 1
+                            except:
                                 i += 1
-                        except:
-                            i += 1
-                        else:
-                            self.MATRIX_GAME[i][z] = l[i + 2 - l[1]][z - l[0]]
+                            else:
+                                self.MATRIX_GAME[i][z] = l[i + 2 - l[1]][z - l[0]]
 
             for i in self.MATRIX_GAME:
                 for z in i:
