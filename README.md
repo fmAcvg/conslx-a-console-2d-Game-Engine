@@ -1,5 +1,6 @@
 # conslx-a-console-2d-Game-Engine
 ![alt text](https://github.com/fmAcvg/conslx-a-console-2d-Game-Engine/blob/master/Unbenannt.png)
+```python
 import time
 
 from conslx.main import conslx
@@ -30,3 +31,4 @@ process = Thread(target=main)
 process.start()
 con.insert(obj=duck, left=10, top=5)
 time.sleep(3)
+```
