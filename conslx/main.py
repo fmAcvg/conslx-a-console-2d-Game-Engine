@@ -11,8 +11,8 @@ class conslx:
         self.Bg = Bg
         self.MATRIX_GAME = []
         size = os.get_terminal_size()
-        self.HEIGHT = size[0]
-        self.WIDTH = size[1]
+        self.HEIGHT = size[1]
+        self.WIDTH = size[0]
         self.voxels = []
 
     def start(self):
@@ -32,10 +32,13 @@ class conslx:
             # of the terminal
             for l in self.voxels:
                 print(l)
-                for i in range(l[1], l[1] + len(l)):
-                    if isinstance(l[i], int):
+                for i in range(l[1], l[1] + len(l)+2):
+                    try:
+                        if isinstance(l[i], int):
+                            pass
+                            print(i)
+                    except IndexError:
                         pass
-                        print(i)
                     else:
                         for z in range(l[0], l[0] + len(l[i])):
                             try:
@@ -44,7 +47,10 @@ class conslx:
                             except:
                                 i += 1
                             else:
-                                self.MATRIX_GAME[i][z] = l[i + 2 - l[1]][z - l[0]]
+                                try:
+                                    self.MATRIX_GAME[i][z] = l[i + 2 - l[1]][z - l[0]]
+                                except IndexError:
+                                    pass
 
             for i in self.MATRIX_GAME:
                 for z in i:
