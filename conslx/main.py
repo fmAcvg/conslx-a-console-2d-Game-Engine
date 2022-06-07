@@ -32,11 +32,11 @@ class conslx:
             # of the terminal
             for l in self.voxels:
                 print(l)
-                if isinstance(i, int):
-                    pass
-                else:
-                    for i in range(l[1], l[1] + len(l)):
+                for i in range(l[1], l[1] + len(l)):
+                    if isinstance(l[i], int):
+                        pass
                         print(i)
+                    else:
                         for z in range(l[0], l[0] + len(l[i])):
                             try:
                                 if l[i + 2 - l[1]][z - l[0]] == " ":
